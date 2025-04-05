@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paintable Grid</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(36, 16px);
+            grid-template-rows: repeat(36, 16px);
+            gap: 0;
+            width: 576px;
+            height: 576px;
+            filter: contrast(7);
+            border: 10px solid black;
+        }
+
+        .cell {
+            width: 16px;
+            height: 16px;
+            background-color: rgb(239, 239, 239);
+            user-select: none;
+            filter: blur(7px);
+        }
+
+        .reset-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #ff4747;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid" id="grid"></div>
+    <button class="reset-btn" id="reset">Reset</button>
+    <script>
+        const grid = document.getElementById("grid");
+        const resetButton = document.getElementById("reset");
+        let mouseDown = false;
+
+        document.body.onmousedown = () => mouseDown = true;
+        document.body.onmouseup = () => mouseDown = false;
+
+        for (let i = 0; i < 36 * 36; i++) {
+            let cell = document.createElement("div");
+            cell.classList.add("cell");
+            cell.addEventListener("mousedown", (e) => {
+                e.preventDefault(); // Prevent stop sign cursor
+                cell.style.backgroundColor = "black";
+            });
+            cell.addEventListener("mouseover", () => {
+                if (mouseDown) cell.style.backgroundColor = "black";
+            });
+            grid.appendChild(cell);
+        }
+
+        resetButton.addEventListener("click", () => {
+            document.querySelectorAll(".cell").forEach(cell => {
+                cell.style.backgroundColor = "rgb(239, 239, 239)";
+            });
+        });
+    </script>
+</body>
+</html>
