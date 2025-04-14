@@ -71,6 +71,8 @@ function updateCartQuantity(){
   document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
 }
 
+updateCartQuantity();
+
 document.querySelectorAll('.addToCart').forEach((button)=>{
   button.addEventListener('click', ()=>{
     const productId = button.dataset.productId;
