@@ -3,11 +3,13 @@ export let cart = JSON.parse(localStorage.getItem('cart'));
 if(!cart){
   cart = [{
     productId: "4e37dd03-3b23-4bc6-9ff8-44e112a92c64",
-    quantity: 1
+    quantity: 1,
+    deliveryOptionId: '1'
   },
   {
     productId: "d339adf3-e004-4c20-a120-40e8874c66cb",
-    quantity: 4
+    quantity: 4,
+    deliveryOptionId: '3'
   }
 ]}
 
@@ -40,7 +42,8 @@ export function addToCart(productId){
     else {
       cart.push({
         productId: productId,
-        quantity: 1
+        quantity: 1,
+        deliveryOptionId: 1 
       });
     }
 
