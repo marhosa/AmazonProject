@@ -127,6 +127,7 @@ removeFromCart(productId);
 const container = document.querySelector(`.js-cart-item-container-${productId}`);
 container.remove();
 renderOrderSumary();
+renderPaymentSummary();
 });
 });
 
