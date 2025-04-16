@@ -8,8 +8,6 @@ import { renderPaymentSummary } from './paymentSummary.js';
 export function renderOrderSumary(){
 
 
-
-
 let cartSummaryHTML = '';
 
 cart.forEach((cartItem)=>{
