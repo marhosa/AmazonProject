@@ -172,5 +172,3 @@ renderPaymentSummary();
 })
 });
 }
-
-renderOrderSumary();
