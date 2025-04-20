@@ -76,7 +76,7 @@ export function loadProducts(fun){
 
 
 
-/*
+/* array of product objects, commented out since we using the backend of supersimpledev
 
 export const products = [
   {
